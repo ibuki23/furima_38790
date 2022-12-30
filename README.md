@@ -36,10 +36,10 @@
 
 ## buys table
 
-| Column    | Type   | Options                           |
-|-----------|--------|-----------------------------------|
-| user      | references | null: false, foreign_key: true|
-| item      | string | null: false                       |
+| Column    | Type       | Options                           |
+|-----------|------------|-----------------------------------|
+| user      | references | null: false, foreign_key: true    |
+| item      | string     | null: false, foreign_key: true    |
 
 belongs_to :buy
 
@@ -47,7 +47,7 @@ belongs_to :buy
 - has_one : send
 
 
-## sends table
+## address table
 
 | Column         | Type    | Options     |
 |----------------|---------|-------------|
