@@ -21,29 +21,29 @@
 | Column              | Type       | Options                           |
 |---------------------|------------|-----------------------------------|
 | item_name           | string     | null: false                       |
-| category            | string     | null: false                       |
+| category_id         | integer    | null: false                       |
 | price               | integer    | null: false                       |
 | user                | references | null: false, foreign_key: true    |
-| item_ explanation_id| string     | null: false                       |
-| item_ status_id     | string     | null: false                       |
-| send_area           | string     | null: false                       |
-| send_charge         | string     | null: false                       |
+| item_detail_id      | integer    | null: false                       |
+| item_status_id      | integer    | null: false                       |
+| send_area_id        | integer    | null: false                       |
+| send_charge_id      | integer    | null: false                       |
 
  ### Association
 
 * has_one :buy
-* has_one :user
+* belongs_to :user
 
 ## buys table
 
 | Column    | Type       | Options                           |
 |-----------|------------|-----------------------------------|
 | user      | references | null: false, foreign_key: true    |
-| item      | string     | null: false, foreign_key: true    |
+| item      | references | null: false, foreign_key: true    |
 
-belongs_to :buy
+- belongs_to :item
 
-- has_one :user
+- belongs_to :user
 - has_one :address
 
 
@@ -53,16 +53,14 @@ belongs_to :buy
 | Column         | Type       | Options                        |
 |----------------|------------|--------------------------------|
 | poster_code    | string     | null: false                    |
-| prefecture_id | integer    | null: false                    |
+| prefecture_id  | integer    | null: false                    |
 | municipalities | string     | null: false                    |
 | house_number   | string     | null: false                    |
 | building_name  | string     |                                |
 | phone_number   | string     | null: false                    |
-| user           | references | null: false, foreign_key: true |
+| buy            | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :buy
-- has_one :user
 
 
