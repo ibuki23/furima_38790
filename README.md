@@ -4,7 +4,7 @@
 |----------------------|--------|---------------------------|
 | nickname             | string | null: false               |
 | email                | string | null: false, unique: true |
-| password             | string | null: false               |
+| encrypted_password   | string | null: false               |
 | birthday             | date   | null: false               |
 | family_name          | string | null: false               |
 | first_name           | string | null: false               |
@@ -18,21 +18,21 @@
 
 ## items table
 
-| Column             | Type       | Options                           |
-|--------------------|------------|-----------------------------------|
-| item_name          | string     | null: false                       |
-| category           | string     | null: false                       |
-| price              | text       | null: false                       |
-| user               | references | null: false, foreign_key: true    |
-| item_ explanation  | string     | null: false                       |
-| item_ status       | string     | null: false                       |
-| send_area          | string     | null: false                       |
-| send_charge        | string     | null: false                       |
+| Column              | Type       | Options                           |
+|---------------------|------------|-----------------------------------|
+| item_name           | string     | null: false                       |
+| category            | string     | null: false                       |
+| price               | integer    | null: false                       |
+| user                | references | null: false, foreign_key: true    |
+| item_ explanation_id| string     | null: false                       |
+| item_ status_id     | string     | null: false                       |
+| send_area           | string     | null: false                       |
+| send_charge         | string     | null: false                       |
 
  ### Association
 
 * has_one :buy
-
+* has_one :user
 
 ## buys table
 
@@ -43,22 +43,26 @@
 
 belongs_to :buy
 
-- belongs_to :item
-- has_one : send
+- has_one :user
+- has_one :address
+
 
 
 ## address table
 
-| Column         | Type    | Options     |
-|----------------|---------|-------------|
-| poster_code    | string  | null: false |
-| buy_id         | integer | null: false |
-| municipalities | string  | null: false |
-| house_number   | string  | null: false |
-| building_name  | string  |             |
-| phone_number   | string  | null: false |
+| Column         | Type       | Options                        |
+|----------------|------------|--------------------------------|
+| poster_code    | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| municipalities | string     | null: false                    |
+| house_number   | string     | null: false                    |
+| building_name  | string     |                                |
+| phone_number   | string     | null: false                    |
+| user           | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :buy
+- has_one :user
+
 
