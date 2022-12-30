@@ -1,23 +1,33 @@
 ## users table
 
-| Column   | Type   | Options                   |
-|----------|--------|---------------------------|
-| nickname | string | null: false               |
-| email    | string | null: false, unique: true |
-| password | string | null: false               |
-| birthday | text   | null: false               |
+| Column               | Type   | Options                   |
+|----------------------|--------|---------------------------|
+| nickname             | string | null: false               |
+| email                | string | null: false, unique: true |
+| password             | string | null: false               |
+| birthday             | date   | null: false               |
+| family_name          | string | null: false               |
+| first_name           | string | null: false               |
+| family_name_furigana | string | null: false               |
+| first_name_furigana  | string | null: false               |
 
 ### Association
 
+* has_many :items
+* has_many :buys
 
 ## items table
 
-| Column    | Type       | Options                           |
-|-----------|------------|-----------------------------------|
-| item name | string     | null: false                       |
-| category  | string     | null: false                       |
-| price     | text       | null: false                       |
-| user      | references | null: false, foreign_key: true|
+| Column             | Type       | Options                           |
+|--------------------|------------|-----------------------------------|
+| item_name          | string     | null: false                       |
+| category           | string     | null: false                       |
+| price              | text       | null: false                       |
+| user               | references | null: false, foreign_key: true    |
+| item_ explanation  | string     | null: false                       |
+| item_ status       | string     | null: false                       |
+| send_area          | string     | null: false                       |
+| send_charge        | string     | null: false                       |
 
  ### Association
 
@@ -39,16 +49,16 @@ belongs_to :buy
 
 ## sends table
 
-| Column         | Type   | Options     |
-|----------------|--------|-------------|
-| address        | text   | null: false |
-| poster code    | text   | null: false |
-| prefectures    | string | null: false |
-| municipalities | string | null: false |
-| house number   | string | null: false |
-| building name  | string | null: false |
-| phone number   | string | null: false |
+| Column         | Type    | Options     |
+|----------------|---------|-------------|
+| poster_code    | string  | null: false |
+| buy_id         | integer | null: false |
+| municipalities | string  | null: false |
+| house_number   | string  | null: false |
+| building_name  | string  |             |
+| phone_number   | string  | null: false |
 
 ### Association
 
 - belongs_to :buy
+
