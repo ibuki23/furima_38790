@@ -60,7 +60,5 @@
 | phone_number   | string     | null: false                    |
 | buy            | references | null: false, foreign_key: true |
 
-### Association
-
 
 
