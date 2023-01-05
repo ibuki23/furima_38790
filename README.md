@@ -21,11 +21,12 @@
 | Column              | Type       | Options                           |
 |---------------------|------------|-----------------------------------|
 | item_name           | string     | null: false                       |
-| item_explanation    | string     | null: false                       |
+| item_explanation    | text       | null: false                       |
 | category_id         | integer    | null: false                       |
 | price               | integer    | null: false                       |
 | user                | references | null: false, foreign_key: true    |
 | item_status_id      | integer    | null: false                       |
+| item_detail_id      | integer    | null: false                       |
 | send_area_id        | integer    | null: false                       |
 | send_charge_id      | integer    | null: false                       |
 
