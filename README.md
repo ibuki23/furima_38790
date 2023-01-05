@@ -50,7 +50,7 @@
 
 
 
-## address table
+## addresses table
 
 | Column         | Type       | Options                        |
 |----------------|------------|--------------------------------|
