@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:nickname])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:birthday])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name_furigana])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name_furigana])
+    
+    
   end
   def after_sign_out_path_for(resource)
     new_user_session_path

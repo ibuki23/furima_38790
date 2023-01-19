@@ -11,9 +11,14 @@
 </head>
 
 <body>
-
-
-        
+<div class="nav__right">
+              <% if user_signed_in? %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
+              <% else %>
+                <%= link_to "ログイン", user_session_path, class: :nav__btn %>
+                <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
+              <% end %>
+            </div>
   <%= yield %>
 </body>
 
