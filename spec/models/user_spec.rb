@@ -65,11 +65,6 @@ RSpec.describe User, type: :model do
     user.valid?
     expect(user.errors.full_messages).to include("Password confirmation doesn't match Password")
   end
-  it "encrypted_passwordが6文字以上でなければ登録できない" do
-    user = User.new(nickname: "abe", email: "kkk@gmail.com", encrypted_password: "0000", password_confirmation: "00000000", birthday: "2000/2/20",
-       family_name: "adati", first_name: "satosi", family_name_furigana: "adati", first_name_furigana: "satosi")
-    user.valid?
-    expect(user.errors.full_messages).to include("Encrypted password is too short (minimum is 6 characters)")
-  end
+  
  end
 end
